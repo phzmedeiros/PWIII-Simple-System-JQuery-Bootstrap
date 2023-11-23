@@ -307,7 +307,7 @@
 </div>
 <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 <script type="text/javascript" src="../../controller/jquery-3.7.1.min.js"></script>
-<script type="text/javascript" src="../../controller/racas.js"></script>
+<script type="text/javascript" src="../../controller/placa.js"></script>
 <script type="text/javascript" src="../bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
 </body>
 <script>

@@ -331,7 +331,8 @@
                 echo '<tr>';
                 echo '<td> <b> Carro </b> </td>';
                 echo '<td> <b> Placa </b> </td>';
-                echo '<td> <b> Apagar & Editar </b> </td>';
+                echo '<td> <b> Apagar </b> </td>';
+                echo '<td> <b> Editar </b> </td>';
                 echo '</tr>';
                 foreach ($sth as $res) {
                     extract($res);
@@ -340,7 +341,8 @@
                     echo '<td>' . $carro_placa . '</td>';
                     echo '<td>';
                     echo '<a href="#" class="deleteClientes" carro_id=' . $carro_id . ' "> Apagar </a>';
-                    echo '    ou   ';
+                    echo '</td>';
+                    echo '<td>';
                     echo '<a href="formulario_update.php?carro_id=' . $carro_id . ' "> Editar </a>';
                     echo '<div class="msg" carro_id=' . $carro_id . '></div>';
                     echo '</td>';
