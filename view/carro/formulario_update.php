@@ -19,7 +19,7 @@
     }
     /* definição das cores por variaveis */
     :root {
-      --blue: #383b43;
+      --blue: #2b75cf;
       --white: #fff;
       --grey: #f5f5f5;
       --black1: #222;
@@ -221,6 +221,24 @@
       overflow: visible;
       padding: 20px; /* Ajuste o espaçamento conforme necessário */
     }
+    label {
+      color: var(--blue);
+    }
+    /* imagem logo */
+    .imglogo {
+      position: absolute;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 0;
+      padding-right: 10%;
+      min-width: 200px;
+      z-index: 1; /* Adicione esta linha */
+    }
+    .imglogo.hidden {
+      display: none;
+    }
   </style>
 <body>
     <?php
@@ -236,6 +254,10 @@
       <!-- side-bar -->
       <div class="navigation">
         <!-- lista das páginas -->
+        <!-- logo aaano -->
+        <div class="imglogo centralize">
+          <img src="../../img/bubbleicon.png" alt="Logo Image" />
+        </div>        
         <ul>
           <li>
             <a href="select.php">
@@ -271,19 +293,19 @@
         <div class="main-content">
         <div class="row">
         <div class="card-panel"><br>
-        <h1 style="color: #383b43">Atualizar Carro Cadastrado</h1><br>
+        <h1 style="color: var(--blue)">Atualizar Carro Cadastrado</h1><br>
             <form name="form_update_cliente" method="post" style="display: inline-block; width: 100%;">
                 <div class="load"></div>
                 <input type="hidden" name="carro_id" value="<?= $carro_id ?>"/>
                 <div class="input-field">
                     <label> Nome </label><br>
-                    <input type="text" name="carro_modelo" value="<?= $carro_modelo ?>" style="border-radius:5px; width: 100%; height: 40px; font-size: 16px; padding: 10px; border: 1px solid #ccc; margin-top: 5px">
+                    <input type="text" name="carro_modelo" value="<?= $carro_modelo ?>" style="border-radius:5px; width: 100%; height: 40px; font-size: 16px; padding: 10px; border: 1px solid #ccc; margin-top: 5px; color: var(--blue);">
                 </div><br>
                 <div class="input-field">
                     <label> Email </label><br>
-                    <input type="text" name="carro_placa" value="<?= $carro_placa ?>" style="border-radius:5px; width: 100%; height: 40px; font-size: 16px; padding: 10px; border: 1px solid #ccc; margin-top: 5px">
+                    <input type="text" name="carro_placa" value="<?= $carro_placa ?>" style="border-radius:5px; width: 100%; height: 40px; font-size: 16px; padding: 10px; border: 1px solid #ccc; margin-top: 5px; color: var(--blue);">
                 </div><br>
-                <input class="btn indigo" type="submit" value="Atualizar" style="border-radius: 8px; width: 100%; height: 40px; font-size: 16px; background-color: #383b43; color: #fff; padding: 10px; border: none;">
+                <input class="btn indigo" type="submit" value="Atualizar" style="border-radius: 8px; width: 100%; height: 40px; font-size: 16px; background-color: var(--blue); color: #fff; padding: 10px; border: none;">
             </form>
                 <div class="msg"></div>
         </div>
@@ -308,12 +330,12 @@
       logo.classList.toggle("hidden");
     };
 
-    //marca como selecionado o item da sidebar
-    let list = document.querySelectorAll(".navigation li");
-    function activeLink() {
-      list.forEach((item) => item.classList.remove("hovered"));
-      this.classList.add("hovered");
-    }
-    list.forEach((item) => item.addEventListener("mouseover", activatelink));
+  //marca como selecionado o item da sidebar
+  let list = document.querySelectorAll(".navigation li");
+  function activeLink() {
+    list.forEach((item) => item.classList.remove("hovered"));
+    this.classList.add("hovered");
+  }
+  list.forEach((item) => item.addEventListener("mouseover", activeLink));
 </script>
 </html>

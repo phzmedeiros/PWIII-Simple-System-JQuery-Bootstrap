@@ -31,8 +31,8 @@ $(function(){
 
     $(document).on('click', '.deleteClientes', function () {
         var forma = $(this);
-        var rac_id = forma.attr('rac_id');
-        dados = {rac_id: rac_id}
+        var carro_id = forma.attr('carro_id');
+        dados = {carro_id: carro_id}
 
         $.ajax({
             url: '../../model/delete.php',
@@ -44,7 +44,7 @@ $(function(){
             },
             success: function (resposta) {
                 if (resposta.error === 'success'){
-                    $('.msg[rac_id="'+rac_id+'"]').text(resposta.msg);
+                    $('.msg[carro_id="'+carro_id+'"]').text(resposta.msg);
                     setTimeout(function () {
                         $(location).attr('href', 'select.php');
                     }, 2000);

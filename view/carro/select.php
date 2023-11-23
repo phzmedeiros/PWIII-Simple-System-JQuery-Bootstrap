@@ -19,7 +19,7 @@
     }
     /* definição das cores por variaveis */
     :root {
-      --blue: #383b43;
+      --blue: #2b75cf;
       --white: #fff;
       --grey: #f5f5f5;
       --black1: #222;
@@ -50,7 +50,7 @@
       width: 80px;
     }
     .navigation ul {
-      padding-top: 80%;
+      padding-top: 80%; /* Pode ajustar este valor conforme necessário */
       position: absolute;
       top: 0;
       left: 0;
@@ -242,11 +242,47 @@
       background-color: #4CAF50;
       color: white;
     }
+    h1 {
+      color: var(--blue);
+    }
+    table,
+    th,
+    tr,
+    td {
+      background-color: var(--white);
+      border-radius: 25px;
+      padding: 20px;
+      color: var(--blue);
+    }
+    a {
+      color: red;
+    }
+
+    /* imagem logo */
+    .imglogo {
+      position: absolute;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 0;
+      padding-right: 10%;
+      min-width: 200px;
+      z-index: 1; /* Adicione esta linha */
+    }
+    .imglogo.hidden {
+      display: none;
+    }
+
 </style>
 <body>
 <div class="container">
       <!-- side-bar -->
       <div class="navigation">
+        <!-- logo aaano -->
+        <div class="imglogo centralize">
+          <img src="../../img/bubbleicon.png" alt="Logo Image" />
+        </div>
         <!-- lista das páginas -->
         <ul>
           <li>
@@ -319,7 +355,7 @@
 <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 <script type="text/javascript" src="../../controller/jquery-3.7.1.min.js"></script>
 <script type="text/javascript" src="../bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../../controller/racas.js"></script>
+<script type="text/javascript" src="../../controller/placa.js"></script>
 </body>
 <script>
     //menu toggle
@@ -334,12 +370,12 @@
       logo.classList.toggle("hidden");
     };
 
-    //marca como selecionado o item da sidebar
-    let list = document.querySelectorAll(".navigation li");
-    function activeLink() {
-      list.forEach((item) => item.classList.remove("hovered"));
-      this.classList.add("hovered");
-    }
-    list.forEach((item) => item.addEventListener("mouseover", activatelink));
+  //marca como selecionado o item da sidebar
+  let list = document.querySelectorAll(".navigation li");
+  function activeLink() {
+    list.forEach((item) => item.classList.remove("hovered"));
+    this.classList.add("hovered");
+  }
+  list.forEach((item) => item.addEventListener("mouseover", activeLink));
 </script>
 </html>

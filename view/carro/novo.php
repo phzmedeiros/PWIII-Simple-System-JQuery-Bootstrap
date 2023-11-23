@@ -19,7 +19,7 @@
     }
     /* definição das cores por variaveis */
     :root {
-      --blue: #383b43;
+      --blue: #2b75cf;
       --white: #fff;
       --grey: #f5f5f5;
       --black1: #222;
@@ -221,12 +221,35 @@
       overflow: visible;
       padding: 20px; /* Ajuste o espaçamento conforme necessário */
     }
+    label {
+      color: var(--blue);
+    }
+
+    /* imagem logo */
+    .imglogo {
+      position: absolute;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 0;
+      padding-right: 10%;
+      min-width: 200px;
+      z-index: 1; /* Adicione esta linha */
+    }
+    .imglogo.hidden {
+      display: none;
+    }
   </style>
 <body>
 <div class="container">
       <!-- side-bar -->
       <div class="navigation">
         <!-- lista das páginas -->
+        <!-- logo aaano -->
+        <div class="imglogo centralize">
+          <img src="../../img/bubbleicon.png" alt="Logo Image" />
+        </div>  
         <ul>
           <li>
             <a href="select.php">
@@ -262,19 +285,19 @@
         <div class="main-content">
     <div class="row">
         <div class="card-panel"><br>
-            <h1 style="color: #383b43">Cadastro de Novo Carro</h1><br>
+            <h1 style="color: var(--blue)">Cadastro de Novo Carro</h1><br>
             <div style="text-align: justify;">
             <form name="form_cliente" style="display: inline-block; width: 100%;">
                 <div class="load"></div>
                 <div class="input-field">
                     <label> Modelo </label><br>
-                    <input type="text" name="carro_modelo" class="form-control form-control-lg" style="border-radius:5px; width: 100%; height: 40px; font-size: 16px; padding: 10px; border: 1px solid #ccc;">
+                    <input type="text" name="carro_modelo" class="form-control form-control-lg" style="border-radius:5px; width: 100%; height: 40px; font-size: 16px; padding: 10px; border: 1px solid #ccc; color: var(--blue);">
                 </div><br>
                 <div class="input-field">
                     <label> Placa </label><br>
-                    <input type="text" name="carro_placa" class="form-control form-control-lg" style="border-radius:5px; width: 100%; height: 40px; font-size: 16px; padding: 10px; border: 1px solid #ccc;">
+                    <input type="text" name="carro_placa" class="form-control form-control-lg" style="border-radius:5px; width: 100%; height: 40px; font-size: 16px; padding: 10px; border: 1px solid #ccc; color: var(--blue);">
                 </div><br>
-                <input class="btn indigo" type="submit" value="Cadastrar" style="border-radius: 8px; width: 100%; height: 40px; font-size: 16px; background-color: #383b43; color: #fff; padding: 10px; border: none;">
+                <input class="btn indigo" type="submit" value="Cadastrar" style="border-radius: 8px; width: 100%; height: 40px; font-size: 16px; background-color: var(--blue); color: #fff; padding: 10px; border: none;">
             </form>
             </div>
             <div class="msg"></div>
@@ -300,12 +323,12 @@
       logo.classList.toggle("hidden");
     };
 
-    //marca como selecionado o item da sidebar
-    let list = document.querySelectorAll(".navigation li");
-    function activeLink() {
-      list.forEach((item) => item.classList.remove("hovered"));
-      this.classList.add("hovered");
-    }
-    list.forEach((item) => item.addEventListener("mouseover", activatelink));
+  //marca como selecionado o item da sidebar
+  let list = document.querySelectorAll(".navigation li");
+  function activeLink() {
+    list.forEach((item) => item.classList.remove("hovered"));
+    this.classList.add("hovered");
+  }
+  list.forEach((item) => item.addEventListener("mouseover", activeLink));
 </script>
 </html>

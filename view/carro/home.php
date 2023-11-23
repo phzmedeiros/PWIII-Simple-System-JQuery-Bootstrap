@@ -17,7 +17,7 @@
     }
     /* definição das cores por variaveis */
     :root {
-      --blue: #383b43;
+      --blue: #2b75cf;
       --white: #fff;
       --grey: #f5f5f5;
       --black1: #222;
@@ -219,6 +219,23 @@
       overflow: visible;
       padding: 20px; /* Ajuste o espaçamento conforme necessário */
     }
+
+    /* imagem logo */
+    .imglogo {
+      position: absolute;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 0;
+      padding-right: 10%;
+      min-width: 200px;
+      z-index: 1; /* Adicione esta linha */
+    }
+    .imglogo.hidden {
+      display: none;
+    }
+
   </style>
   <body>
     <!-- toda a página -->
@@ -226,6 +243,10 @@
       <!-- side-bar -->
       <div class="navigation">
         <!-- lista das páginas -->
+        <!-- logo aaano -->
+        <div class="imglogo centralize">
+          <img src="../../img/bubbleicon.png" alt="Logo Image" />
+        </div>  
         <ul>
           <li>
             <a href="select.php">
@@ -279,12 +300,12 @@
       logo.classList.toggle("hidden");
     };
 
-    //marca como selecionado o item da sidebar
-    let list = document.querySelectorAll(".navigation li");
-    function activeLink() {
-      list.forEach((item) => item.classList.remove("hovered"));
-      this.classList.add("hovered");
-    }
-    list.forEach((item) => item.addEventListener("mouseover", activatelink));
+  //marca como selecionado o item da sidebar
+  let list = document.querySelectorAll(".navigation li");
+  function activeLink() {
+    list.forEach((item) => item.classList.remove("hovered"));
+    this.classList.add("hovered");
+  }
+  list.forEach((item) => item.addEventListener("mouseover", activeLink));
   </script>
 </html>
