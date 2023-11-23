@@ -291,16 +291,16 @@
                 <div class="load"></div>
                 <div class="input-field">
                     <label> Modelo </label><br>
-                    <input type="text" name="carro_modelo" class="form-control form-control-lg" style="border-radius:5px; width: 100%; height: 40px; font-size: 16px; padding: 10px; border: 1px solid #ccc; color: var(--blue);">
+                    <input type="text" placeholder="Modelo do Veículo" name="carro_modelo" class="form-control form-control-lg" style="border-radius:5px; width: 100%; height: 40px; font-size: 16px; padding: 10px; border: 1px solid #ccc; color: var(--blue);">
                 </div><br>
                 <div class="input-field">
                     <label> Placa </label><br>
-                    <input type="text" name="carro_placa" class="form-control form-control-lg" style="border-radius:5px; width: 100%; height: 40px; font-size: 16px; padding: 10px; border: 1px solid #ccc; color: var(--blue);">
+                    <input type="text" placeholder="Placa do Veículo" name="carro_placa" class="form-control form-control-lg" style="border-radius:5px; width: 100%; height: 40px; font-size: 16px; padding: 10px; border: 1px solid #ccc; color: var(--blue);">
                 </div><br>
                 <input class="btn indigo" type="submit" value="Cadastrar" style="border-radius: 8px; width: 100%; height: 40px; font-size: 16px; background-color: var(--blue); color: #fff; padding: 10px; border: none;">
             </form>
             </div>
-            <div class="msg"></div>
+            <div class="msg" style="color: var(--blue)"></div>
         </div>
     </div>
 </div>

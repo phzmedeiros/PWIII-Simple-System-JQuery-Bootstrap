@@ -229,7 +229,7 @@
       text-align: start;
     }
     .stripes td, .stripes th {
-      border: 0.5px solid #ddd;
+      border: 2px solid #ddd;
       padding: 8px;
       display: table-cell;
       vertical-align: middle;
@@ -274,6 +274,18 @@
       display: none;
     }
 
+  .action-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .centro {
+    text-align: center;
+  }
+
+  .highlight td { border: 2px solid var(--blue); }
 </style>
 <body>
 <div class="container">
@@ -328,21 +340,21 @@
 
                 echo '<h1>' . $sth->rowCount() . ' Carro(s) Cadastrado(s) </h1>';
                 echo '<table class="stripes">';
-                echo '<tr>';
+                echo '<tr class="highlight">';
                 echo '<td> <b> Carro </b> </td>';
                 echo '<td> <b> Placa </b> </td>';
-                echo '<td> <b> Apagar </b> </td>';
-                echo '<td> <b> Editar </b> </td>';
+                echo '<td class="centro"> <b> Excluir </b> </td>';
+                echo '<td class="centro"> <b> Editar </b> </td>';
                 echo '</tr>';
                 foreach ($sth as $res) {
                     extract($res);
                     echo '<tr>';
                     echo '<td>' . $carro_modelo . '</td>';
                     echo '<td>' . $carro_placa . '</td>';
-                    echo '<td>';
-                    echo '<a href="#" class="deleteClientes" carro_id=' . $carro_id . ' "> Apagar </a>';
+                    echo '<td class="centro">';
+                    echo '<a href="#" class="deleteClientes" carro_id=' . $carro_id . ' "> Excluir </a>';
                     echo '</td>';
-                    echo '<td>';
+                    echo '<td class="centro">';
                     echo '<a href="formulario_update.php?carro_id=' . $carro_id . ' "> Editar </a>';
                     echo '<div class="msg" carro_id=' . $carro_id . '></div>';
                     echo '</td>';

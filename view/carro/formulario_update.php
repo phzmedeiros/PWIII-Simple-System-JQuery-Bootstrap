@@ -307,7 +307,7 @@
                 </div><br>
                 <input class="btn indigo" type="submit" value="Atualizar" style="border-radius: 8px; width: 100%; height: 40px; font-size: 16px; background-color: var(--blue); color: #fff; padding: 10px; border: none;">
             </form>
-                <div class="msg"></div>
+                <div class="msg" style="color: var(--blue)"></div>
         </div>
     </div>
 </div>
