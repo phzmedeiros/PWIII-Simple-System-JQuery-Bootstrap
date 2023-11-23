@@ -236,6 +236,51 @@
       display: none;
     }
 
+    /* cards */
+    .cardBox {
+      position: relative;
+      width: 100%;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      grid-gap: 30px;
+    }
+    .cardBox .card{
+      position: relative;
+      background: var(--white);
+      padding: 30px;
+      border-radius: 20px;
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+      box-shadow: 0 7px 25px rgba(0, 0, 0, 0.158);
+    }
+    .cardBox .card .numbers
+    {
+      position: relative;
+      font-weight: 500;
+      font-size: 2.5em;
+      color: var(--blue);
+    }
+    .cardBox .card .cardName{
+      color: var(--black2);
+      font-size: 1.1em;
+      margin-top: 5px;
+    }
+    .cardBox .card .iconBx
+    {
+      font-size: 3.5em;
+      color: var(--black2);
+    }
+    .cardBox .card:hover{
+      background: var(--blue);
+    }
+    .cardBox .card:hover .numbers,
+    .cardBox .card:hover .cardName,
+    .cardBox .card:hover .iconBx{
+      color: var(--white);
+    }
+
   </style>
   <body>
     <!-- toda a página -->
@@ -248,6 +293,13 @@
           <img src="../../img/bubbleicon.png" alt="Logo Image" />
         </div>  
         <ul>
+          <li>
+            <a href="home.php">
+              <span class="icon"><ion-icon name="sparkles"></ion-icon></span>
+              <span class="title">Geral</span>
+            </a>
+          </li>
+
           <li>
             <a href="select.php">
               <span class="icon"><ion-icon name="car"></ion-icon></span>
@@ -276,16 +328,96 @@
         <div class="topbar">
           <!-- botão toggle para reduzir e aumentar a side-bar -->
           <div class="toggle">
-            <ion-icon name="reorder"></ion-icon>
+          <ion-icon name="menu"></ion-icon>
           </div>
         </div>
-      <div class="main-content">
-      </div>
-    </div>
+        <?php
+// Conectar ao banco de dados (substitua com suas próprias configurações)
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "carros";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Verificar a conexão
+if ($conn->connect_error) {
+    die("Conexão falhou: " . $conn->connect_error);
+}
+
+// Consultas SQL
+$query_usuarios = "SELECT COUNT(*) as total_usuarios FROM usuarios";
+$query_carros = "SELECT COUNT(*) as total_carros FROM carro";
+$query_modelos_diferentes = "SELECT COUNT(DISTINCT carro_modelo) as total_modelos FROM carro";
+$query_carros_excluidos = "SELECT COUNT(*) as total_carros_excluidos FROM carro_excluido";
+
+// Executar as consultas
+$result_usuarios = $conn->query($query_usuarios);
+$result_carros = $conn->query($query_carros);
+$result_modelos_diferentes = $conn->query($query_modelos_diferentes);
+$result_carros_excluidos = $conn->query($query_carros_excluidos);
+
+// Verificar se as consultas foram bem-sucedidas
+if ($result_usuarios && $result_carros && $result_modelos_diferentes && $result_carros_excluidos) {
+    // Obter os resultados como arrays associativos
+    $row_usuarios = $result_usuarios->fetch_assoc();
+    $row_carros = $result_carros->fetch_assoc();
+    $row_modelos_diferentes = $result_modelos_diferentes->fetch_assoc();
+    $row_carros_excluidos = $result_carros_excluidos->fetch_assoc();
+
+    // Imprimir os resultados nos cards
+    echo '<div class="cardBox">
+            <div class="card">
+                <div>
+                    <div class="numbers">' . $row_usuarios['total_usuarios'] . '</div>
+                    <div class="cardName">Usuários</div>
+                </div>
+                <div class="iconBx">
+                <ion-icon name="person"></ion-icon>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <div class="numbers">' . $row_carros['total_carros'] . '</div>
+                    <div class="cardName">Carros</div>
+                </div>
+                <div class="iconBx">
+                    <ion-icon name="car"></ion-icon>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <div class="numbers">' . $row_modelos_diferentes['total_modelos'] . '</div>
+                    <div class="cardName">Modelos Diferentes</div>
+                </div>
+                <div class="iconBx">
+                    <ion-icon name="list"></ion-icon>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <div class="numbers">' . $row_carros_excluidos['total_carros_excluidos'] . '</div>
+                    <div class="cardName">Carros Excluídos</div>
+                </div>
+                <div class="iconBx">
+                    <ion-icon name="trash"></ion-icon>
+                </div>
+            </div>
+        </div>';
+} else {
+    echo "Erro na consulta: " . $conn->error;
+}
+
+// Fechar a conexão
+$conn->close();
+?>
+
+
     <!-- framework dos icones - ionicons.com -->
     <script type="text/javascript" src="../../controller/jquery-3.7.1.min.js"></script>
     <script type="text/javascript" src="../bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
-    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   </body>
   <script>
     //menu toggle

@@ -260,6 +260,13 @@
         </div>        
         <ul>
           <li>
+            <a href="home.php">
+              <span class="icon"><ion-icon name="sparkles"></ion-icon></span>
+              <span class="title">Geral</span>
+            </a>
+          </li>
+
+          <li>
             <a href="select.php">
               <span class="icon"><ion-icon name="car"></ion-icon></span>
               <span class="title">Carros</span>
@@ -287,7 +294,7 @@
         <div class="topbar">
           <!-- botão toggle para reduzir e aumentar a side-bar -->
           <div class="toggle">
-            <ion-icon name="reorder"></ion-icon>
+          <ion-icon name="menu"></ion-icon>
           </div>
         </div>
         <div class="main-content">
@@ -312,7 +319,8 @@
     </div>
 </div>
 </div>
-<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <script type="text/javascript" src="../../controller/jquery-3.7.1.min.js"></script>
 <script type="text/javascript" src="../bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../../controller/placa.js"></script>

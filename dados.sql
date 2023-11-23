@@ -18,4 +18,10 @@ create table carro(
     carro_placa varchar(100) not null
 );
 
+CREATE TABLE carro_excluido (
+    carro_id_excluido INT PRIMARY KEY AUTO_INCREMENT,
+    carro_modelo_excluido VARCHAR(100) NOT NULL,
+    carro_placa_excluido VARCHAR(100) NOT NULL
+);
+
 insert into usuarios(usu_nome, usu_email, usu_senha) values("Pedro Medeiros", "pedromedeiros@gmail.com", "123456");
