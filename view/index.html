@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../bootstrap-5.3.2-dist/css/bootstrap.min.css" />
+  <title>Lava Rápido</title>
+</head>
+
+<body>
+  <div class="container d-flex flex-column align-items-center justify-content-center" style="height: 100vh;">
+    <div class="card m-4" style="border: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.233); border-radius: 25px;">
+      <div class="card-body p-4">
+        <h6 class="card-title text-center mb-4" style="font-size: 25px; color: gray;">Login</h6>
+
+        <form name="form_login" method="post" action="#">
+          <div class="load mb-3"></div>
+          <div class="form-group row mb-3">
+            <div class="col-sm-12">
+              <input type="email" class="form-control form-control-lg" name="login" id="login" placeholder="Email" style="border: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.199); border-radius: 10px;">
+            </div>
+          </div>
+          <div class="form-group row mb-3">
+            <div class="col-sm-12">
+              <input type="password" class="form-control form-control-lg" name="senha" id="senha" placeholder="Password" style="border: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.199); border-radius: 10px;">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-12">
+              <input value="Logar" type="submit" class="btn btn-primary w-100 btn-lg" style="border: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.199); border-radius: 10px;">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="../controller/jquery-3.7.1.min.js"></script>
+  <script type="text/javascript" src="../bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../controller/login.js"></script>
+</body>
+</html>

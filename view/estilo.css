@@ -1,0 +1,10 @@
+.load{
+    background-image: url(../img/load.gif);
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    display: none;
+}
